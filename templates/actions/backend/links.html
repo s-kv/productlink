@@ -1,0 +1,110 @@
+<script type='text/javascript' src='{$plugin_url}js/a_tableDnD.js'></script>
+<link type="text/css" href="{$plugin_url}css/links.css" rel="stylesheet" />
+
+<table>
+    <tr>
+        <td width="50%" style="vertical-align:top;">
+            <h2>
+            Продукт входит в:
+            </h2>
+            <div class="block">
+                <i class="icon16 add" style="margin-top: 0.3em;"></i>
+                <input id="product-autocomplete-links" type="text" placeholder="{_w('Start typing product or SKU name')}" class="long js-ignore-change">
+                <div id="link-add-errors" class="block errormsg"></div>
+            </div>
+            <table class="zebra single-lined" id="links-table" data-product_id="{$product_id}">
+                <tr>
+                    <th class=""></th>
+                    <th class="">id</th>
+                    <th class="">Название</th>
+                    <th class="">Тип</th>
+                    <th class="">Удалить</th>
+                </tr>
+                
+                <tr class="product" data-product_id="0" data-sort="0" style="display: none;">
+                    <td class="sort"><i class="icon16 sort"></i></td>
+                    <td>[<a href="" target="_blank" class="admin_link">$id</a>]</td>
+                    <td><a href="" target="_blank" class="store_link">$p.name</a></td>
+                    <td class="type">
+                        <select class="js-ignore-change">
+                            {foreach $types as $_type => $name}
+                            <option value="{$_type}">{$name}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                    <td class="align-center"><a href="#" class="remove"><i class="icon16 delete"></i></a></td>
+                </tr>                
+
+                {foreach $relations as $id => $rel}
+                {$p = $products[$id]}
+                <tr class="product sortable" data-product_id="{$id}" data-sort="{$rel.sort}">
+                    <td class="sort"><i class="icon16 sort"></i></td>
+                    <td>[<a href="?action=products#/product/{$id}/edit/" target="_blank">{$id}</a>]</td>
+                    <td><a href="{$p.frontend_url}" target="_blank">{$p.name}</a></td>
+                    <td class="type">
+                        <select class="js-ignore-change">
+                            {foreach $types as $_type => $name}
+                            <option value="{$_type}" {if $_type == $rel.type} selected{/if}>{$name}</option>
+                            {/foreach}
+                        </select>
+                    </td>                    
+                    <td class="align-center"><a href="#" class="remove"><i class="icon16 delete"></i></a></td>
+                </tr>
+                {/foreach}
+            </table> 
+        </td>
+        <td width="50%" style="vertical-align:top;">
+            <h2>
+            Продукт состоит из:
+            </h2>
+            <div class="block">
+                <i class="icon16 add" style="margin-top: 0.3em;"></i>
+                <input id="product-autocomplete-links2" type="text" placeholder="{_w('Start typing product or SKU name')}" class="long js-ignore-change">
+                <div id="link-add-errors2" class="block errormsg"></div>
+            </div>
+            <table class="zebra single-lined" id="links-table2" data-product_id="{$product_id}">
+                <tr>
+                    <th class=""></th>
+                    <th class="">id</th>
+                    <th class="">Название</th>
+                    <th class="">Тип</th>
+                    <th class="">Удалить</th>
+                </tr>
+                
+                <tr class="product" data-product_id="0" data-sort="0" style="display: none;">
+                    <td class="sort"><i class="icon16 sort"></i></td>
+                    <td>[<a href="" target="_blank" class="admin_link">$id</a>]</td>
+                    <td><a href="" target="_blank" class="store_link">$p.name</a></td>
+                    <td class="type">
+                        <select class="js-ignore-change">
+                            {foreach $types as $_type => $name}
+                            <option value="{$_type}">{$name}</option>
+                            {/foreach}
+                        </select>
+                    </td>
+                    <td class="align-center"><a href="#" class="remove"><i class="icon16 delete"></i></a></td>
+                </tr>                
+
+                {foreach $relations2 as $id => $rel}
+                {$p = $products2[$id]}
+                <tr class="product sortable" data-product_id="{$id}" data-sort="{$rel.sort}">
+                    <td class="sort"><i class="icon16 sort"></i></td>
+                    <td>[<a href="?action=products#/product/{$id}/edit/" target="_blank">{$id}</a>]</td>
+                    <td><a href="{$p.frontend_url}" target="_blank">{$p.name}</a></td>
+                    <td class="type">
+                        <select class="js-ignore-change">
+                            {foreach $types as $_type => $name}
+                            <option value="{$_type}" {if $_type == $rel.type} selected{/if}>{$name}</option>
+                            {/foreach}
+                        </select>
+                    </td>                    
+                    <td class="align-center"><a href="#" class="remove"><i class="icon16 delete"></i></a></td>
+                </tr>
+                {/foreach}
+            </table> 
+        </td>   
+    </tr>
+</table>
+    
+<script type='text/javascript' src='{$plugin_url}js/shopProductPluginLinks.js'></script>
+

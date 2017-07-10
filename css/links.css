@@ -1,0 +1,89 @@
+table#links-table{
+    width: initial;
+}
+table#links-table td.sort{
+	cursor:move;
+}
+table#links-table a{
+    display: inline;
+}
+table#links-table tr{
+    border-left: 1px solid white;
+}
+#link-add-errors{
+    display: none;
+}
+table#links-table select.in_change{
+	border: 1px solid red;
+}
+table#links-table tr.in_change{
+	border-left: 1px solid red!important;
+}
+
+table#links-table2{
+    width: initial;
+}
+table#links-table2 td.sort{
+	cursor:move;
+}
+table#links-table2 a{
+    display: inline;
+}
+table#links-table2 tr{
+    border-left: 1px solid white;
+}
+#link-add-errors2{
+    display: none;
+}
+table#links-table2 select.in_change{
+	border: 1px solid red;
+}
+table#links-table2 tr.in_change{
+	border-left: 1px solid red!important;
+}
+
+i.a-equipment {
+	width: 17px;
+	height: 12px;
+	display: inline-block;
+	margin: 0 3px 0 0;
+	background: url(../img/equip_acces.png);
+	background-position: 0px 0px;
+    position: relative;
+}
+    i.a-equipment:hover::after{ 
+        content: 'Оборудование';
+        background: rgba(255,255,230,0.9);
+        z-index: 1;
+        position: absolute;
+        top: 19px;
+        padding: 1px;
+        border: 1px solid gray;
+        font-style: normal;
+        font-size: 11px;
+    }
+
+i.a-accessory {
+	width: 11px;
+	height: 11px;
+	display: inline-block;
+	margin: 0 3px 0 0;
+	background: url(../img/equip_acces.png);
+	background-position: -18px 0px;
+    position: relative;
+}
+    i.a-accessory:hover::after{ 
+        content: 'Аксессуар';
+        background: rgba(255,255,230,0.9);
+        z-index: 1;
+        position: absolute;
+        top: 19px;
+        padding: 1px;
+        border: 1px solid gray;
+        font-style: normal;
+        font-size: 11px;
+    }
+
+#shop-product-plugin-products i.a-equipment, #shop-product-plugin-products i.a-accessory{
+    cursor: pointer;
+}
